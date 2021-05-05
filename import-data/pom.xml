@@ -5,11 +5,11 @@
 	<parent>
 		<groupId>org.honma</groupId>
 		<version>0.0.1-SNAPSHOT</version>
-		<artifactId>common</artifactId>
+		<artifactId>lims</artifactId>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>org.honma</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>import-data</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>data</name>
 	<description>Demo project for Spring Boot</description>
@@ -25,6 +25,7 @@
 			<artifactId>common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

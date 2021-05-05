@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@MapperScan("org.honma/*/mapper*")
+@SpringBootApplication()
+@MapperScan({"org.honma.*.mapper.**"})
 public class LimsApplication {
 
 	public static void main(String[] args) {

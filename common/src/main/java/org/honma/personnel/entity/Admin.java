@@ -34,4 +34,8 @@ public class Admin {
      * 邮件
      */
     private String email;
+    /**
+     * 管理员id
+     */
+    private String adminId;
 }

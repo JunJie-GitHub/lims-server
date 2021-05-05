@@ -8,4 +8,6 @@ import org.honma.personnel.entity.Admin;
  * @Date: 2021/4/24
  */
 public interface AdminService extends IService<Admin> {
+
+    boolean loginValid(String username, String password);
 }

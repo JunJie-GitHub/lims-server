@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.honma</groupId>
 		<version>0.0.1-SNAPSHOT</version>
-		<artifactId>laboratory</artifactId>
+		<artifactId>lims</artifactId>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>org.honma</groupId>
@@ -78,12 +78,25 @@
 			<version>${spring-boot-test.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-annotation</artifactId>
 			<version>3.4.2</version>
 			<scope>compile</scope>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+</dependencies>
 
 
 
