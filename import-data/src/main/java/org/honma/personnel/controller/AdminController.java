@@ -1,7 +1,6 @@
 package org.honma.personnel.controller;
 
 import cn.hutool.json.JSONObject;
-import org.apache.ibatis.annotations.Param;
 import org.honma.entity.Result;
 import org.honma.personnel.entity.Admin;
 import org.honma.personnel.service.AdminService;
