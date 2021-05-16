@@ -1,6 +1,6 @@
 package org.honma.personnel.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.honma.personnel.entity.Admin;
 
 /**

@@ -1,7 +1,6 @@
 package org.honma.security.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.honma.personnel.entity.Admin;
 import org.honma.personnel.mapper.AdminMapper;
 import org.honma.personnel.service.AdminService;
@@ -28,7 +27,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         //s是表单传过来的用户名
-        Admin admin = adminService.selectOne(new EntityWrapper<Admin>().eq("username", s));
+        Admin admin = adminService.getOne(new QueryWrapper<Admin>().eq("username", s));
         if (admin == null){
             throw new UsernameNotFoundException("用户名不存在");
         }

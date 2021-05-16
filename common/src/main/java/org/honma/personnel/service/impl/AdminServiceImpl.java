@@ -1,7 +1,7 @@
 package org.honma.personnel.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.honma.personnel.entity.Admin;
 import org.honma.personnel.mapper.AdminMapper;
 import org.honma.personnel.service.AdminService;
@@ -24,7 +24,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
      */
     @Override
     public boolean loginValid(String username, String password) {
-        Admin user = this.selectOne(new EntityWrapper<Admin>().eq("username", username));
+        Admin user = this.getOne(new QueryWrapper<Admin>().eq("username", username));
         if (user == null){
             return false;
         }

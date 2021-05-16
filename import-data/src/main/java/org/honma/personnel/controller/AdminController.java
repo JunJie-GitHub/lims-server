@@ -42,7 +42,7 @@ public class AdminController {
     @RequestMapping(method = RequestMethod.POST, value = "/loginValid")
     @ResponseBody
     public Result loginValid(@RequestBody JSONObject param){
-        List<Admin> admins = adminService.selectList(null);
+        List<Admin> admins = adminService.list(null);
         String msg = null;
         String username = param.getStr("account");
         String password = param.getStr("password");

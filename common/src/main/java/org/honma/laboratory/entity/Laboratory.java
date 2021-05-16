@@ -2,6 +2,7 @@ package org.honma.laboratory.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -9,11 +10,12 @@ import lombok.Data;
  * @Date: 2021/5/11
  */
 @Data
+@TableName("laboratory")
 public class Laboratory {
     /**
      * 主键
      */
-    @TableId(type = IdType.INPUT)
+//    @TableId(type = IdType.INPUT)
     private String id;
 
     /**

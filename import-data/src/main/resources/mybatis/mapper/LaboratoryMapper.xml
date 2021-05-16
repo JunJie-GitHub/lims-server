@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.honma.laboratory.mapper.LaboratoryMapper">
+
+    <insert id="insertLaboratoryApplication">
+        INSERT INTO laboratory_idle_state
+        VALUES (NULL,#{name}, #{date},#{classTime},#{reason},#{state})
+    </insert>
+    <select id="getAllLaboratoryState" resultType="org.honma.laboratory.entity.LaboratoryApplyState">
+        SELECT
+            li.NAME,
+            l.address,
+            l.department,
+            l.instructor,
+            li.reason,
+            li.state,
+            li.date,
+            li.class_time
+        FROM
+            `laboratory_idle_state` li
+            LEFT JOIN laboratory l ON li.NAME = l.`name`
+    </select>
+</mapper>

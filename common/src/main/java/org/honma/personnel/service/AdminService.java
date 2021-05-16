@@ -1,6 +1,6 @@
 package org.honma.personnel.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.honma.personnel.entity.Admin;
 
 /**
