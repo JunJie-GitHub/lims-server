@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.honma.personnel.mapper.AccountMapper">
+
+    <select id="getUserInfos" resultType="org.honma.personnel.entity.UserInfo">
+        SELECT
+            a.user_id,
+            a.username,
+            a.`password`,
+            b.`name`,
+            b.email,
+            ai.identity_name
+        FROM
+            account a
+            LEFT JOIN (
+            SELECT
+                `name`,
+                email,
+                admin_id AS "user_id"
+            FROM
+                admin UNION
+                ( SELECT NAME, email, teacher_id AS "user_id" FROM teacher ) UNION
+                ( SELECT NAME, email, student_id AS "user_id" FROM student ) UNION
+            ( SELECT NAME, email, em_id AS "user_id" FROM equipment_maintainer )) b ON b.user_id = a.user_id
+	JOIN account_identity ai ON a.identity = ai.identity_id
+    </select>
+</mapper>

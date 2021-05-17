@@ -25,4 +25,9 @@ public class EquipmentServiceImpl extends ServiceImpl<EquipmentMapper, Equipment
         return names;
     }
 
+    @Override
+    public List<Object> listTutors() {
+        return equipmentMapper.selectObjs(new QueryWrapper<Equipment>().select("tutor"));
+    }
+
 }

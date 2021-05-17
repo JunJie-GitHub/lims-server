@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/user/login")           //登录请求路径
                 .defaultSuccessUrl("/admin/test").permitAll() //登录成功后跳转路径
                 .and().authorizeRequests()
-                .antMatchers("/", "/admin/test", "/user/login", "/laboratory/*", "/equipment/*").permitAll()
+                .antMatchers("/", "/admin/test", "/user/login", "/laboratory/*", "/equipment/*", "/teacher/*", "/admin/*").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable();  //关闭csrf防护
 

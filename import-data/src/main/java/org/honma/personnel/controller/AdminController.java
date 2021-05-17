@@ -3,6 +3,8 @@ package org.honma.personnel.controller;
 import cn.hutool.json.JSONObject;
 import org.honma.entity.Result;
 import org.honma.personnel.entity.Admin;
+import org.honma.personnel.entity.UserInfo;
+import org.honma.personnel.service.AccountService;
 import org.honma.personnel.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,8 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private AccountService accountService;
     /**
      * (测试)
      * @return
@@ -55,6 +59,7 @@ public class AdminController {
             return new Result();
         }
     }
+
     /**
      * 登录信息
      */
@@ -63,6 +68,14 @@ public class AdminController {
 //    public Result userMsg(@RequestBody JSONObject param){
 //
 //    }
-
+    /**
+     * 所有用户信息
+     */
+    @RequestMapping(method = RequestMethod.POST, value ="/listUserInfos")
+    @ResponseBody
+    public Result listUserInfos(){
+        List<UserInfo> userInfos = accountService.getUserInfos();
+        return new Result(userInfos);
+    }
 
 }

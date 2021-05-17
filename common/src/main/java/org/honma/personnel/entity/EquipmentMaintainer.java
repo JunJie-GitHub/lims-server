@@ -17,14 +17,7 @@ public class EquipmentMaintainer {
      */
     @TableId(type = IdType.INPUT)
     private String id;
-    /**
-     * 用户名
-     */
-    private String username;
-    /**
-     * 密码
-     */
-    private String password;
+
     /**
      * 姓名
      */

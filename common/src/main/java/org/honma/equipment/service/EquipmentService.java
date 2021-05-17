@@ -15,4 +15,9 @@ public interface EquipmentService extends IService<Equipment> {
      * @return 设备名列表
      */
     List<Object>  listEquipmentNames();
+    /**
+     *
+     * @return 指导老师列表
+     */
+    List<Object>  listTutors();
 }

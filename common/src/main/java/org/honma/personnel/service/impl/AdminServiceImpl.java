@@ -25,9 +25,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Override
     public boolean loginValid(String username, String password) {
         Admin user = this.getOne(new QueryWrapper<Admin>().eq("username", username));
-        if (user == null){
-            return false;
-        }
-        return username.equals(user.getUsername()) && password.equals(user.getPassword());
+        return user != null;
+//        return username.equals(user.getUsername()) && password.equals(user.getPassword());
     }
 }

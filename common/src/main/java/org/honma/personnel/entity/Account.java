@@ -2,33 +2,33 @@ package org.honma.personnel.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
  * @Author: lijunjie
- * @Date: 2021/4/15
+ * @Date: 2021/5/17
  */
 @Data
-@TableName("admin")
-public class Admin {
-
+public class Account {
     /**
      * 主键id
      */
-    @TableId(type = IdType.INPUT)
+    @TableId(type = IdType.AUTO)
     private String id;
-
     /**
-     * 姓名
+     * 用户名
      */
-    private String name;
+    private String username;
     /**
-     * 邮件
+     * 密码
      */
-    private String email;
+    private String password;
     /**
-     * 管理员id
+     * 用户唯一id
      */
-    private String adminId;
+    private String userId;
+    /**
+     * 身份信息
+     */
+    private Integer identity;
 }

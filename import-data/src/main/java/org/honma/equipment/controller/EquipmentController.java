@@ -1,5 +1,6 @@
 package org.honma.equipment.controller;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONObject;
 import org.honma.entity.Result;
 import org.honma.equipment.entity.Equipment;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +24,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/equipment")
 public class EquipmentController {
-
+    private static final String STATE_WAIT = "0";
     @Autowired
     EquipmentService equipmentService;
 
@@ -66,10 +66,12 @@ public class EquipmentController {
         equipmentApplication.setEquipmentName(param.getStr("equipmentName"));
         equipmentApplication.setExperimentContext(param.getStr("experimentContext"));
         equipmentApplication.setExperimentPurpose(param.getStr("experimentPurpose"));
-        equipmentApplication.setStartTime(param.getStr("startTime"));
-        equipmentApplication.setEndTime(param.getStr("endTime"));
+        equipmentApplication.setStartTime( DateUtil.formatDateTime(
+                DateUtil.parse(param.getStr("startTime"))));
+        equipmentApplication.setEndTime( DateUtil.formatDateTime(
+                DateUtil.parse(param.getStr("endTime"))));
         equipmentApplication.setTutor(param.getStr("tutor"));
-        equipmentApplication.setState(param.getStr("state"));
+        equipmentApplication.setState(STATE_WAIT);
         equipmentApplicationService.save(equipmentApplication);
         return new Result();
     }
@@ -78,10 +80,16 @@ public class EquipmentController {
      * 设备名列表
      * @return
      */
-    @RequestMapping("listEquipmentName")
+    @RequestMapping("/listEquipmentName")
     @ResponseBody
     public Result listEquipmentName(){
         List<Object> list= equipmentService.listEquipmentNames();
         return new Result(list);
     }
+
+//    public static void main(String[] args) {
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(ToolUtils.getUUID());
+//        }
+//    }
 }
